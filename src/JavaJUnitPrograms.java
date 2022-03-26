@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 public class JavaJUnitPrograms {
     public void vendingMachine(int amount) {
@@ -26,5 +27,27 @@ public class JavaJUnitPrograms {
         int m0 = m + 12 * ((14 - m) / 12) - 2;
         int d0 = (d + x + (31*m0) / 12) % 7;
         return weekDays[d0];
+    }
+
+    public static String convertTemperature(){
+        Scanner in = new Scanner(System.in);
+        System.out.println("1. Convert Fahrenheit to Celsius\n2.Convert Celsius to Fahrenheit");
+        System.out.println("Enter Choice: ");
+        int ch=in.nextInt();
+        int input=0;
+        double temp=0;
+        switch (ch){
+            case 1:
+                System.out.println("Enter temperature in Fahrenheit(>32): ");
+                input=in.nextInt();
+                temp=(input - 32) * (5.0/9.0);
+                break;
+            case 2:
+                System.out.println("Enter temperature in Celsius: ");
+                input=in.nextInt();
+                temp=(input * (9.0/5.0)) + 32;
+                break;
+        }
+        return String.format("%.2f", temp);
     }
 }

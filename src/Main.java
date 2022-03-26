@@ -3,7 +3,10 @@ public class Main {
         JavaJUnitPrograms javaJUnitPrograms = new JavaJUnitPrograms();
 //        javaJUnitPrograms.vendingMachine(999);
 
-        String weekDay=javaJUnitPrograms.dayOfWeek(19,3,2022);
-        System.out.println(weekDay);
+//        String weekDay=javaJUnitPrograms.dayOfWeek(19,3,2022);
+//        System.out.println(weekDay);
+
+        String temp=JavaJUnitPrograms.convertTemperature();
+        System.out.println(temp);
     }
 }
