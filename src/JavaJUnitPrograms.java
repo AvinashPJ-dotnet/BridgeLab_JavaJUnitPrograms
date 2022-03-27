@@ -59,4 +59,20 @@ public class JavaJUnitPrograms {
         return Math.round(payment);
     }
 
+    public static void sqrt(int c) {
+        double t=c;
+        double elipson=1e-15;
+        int count = 0;
+        double root;
+        while (true)
+        {
+            count++;
+            root =c + (c / t);
+            System.out.println(root);
+            if (Math.abs((t-c/t) - t) > (elipson*t))
+                break;
+            t = root;
+        }
+        System.out.println(root);
+    }
 }
