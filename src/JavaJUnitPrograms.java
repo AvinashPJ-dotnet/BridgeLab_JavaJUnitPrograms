@@ -1,8 +1,8 @@
-import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class JavaJUnitPrograms {
+
     public void vendingMachine(int amount) {
         int[] notes = {1, 2, 5, 10, 50, 100, 500, 1000};
         int len = notes.length - 1;
@@ -59,20 +59,46 @@ public class JavaJUnitPrograms {
         return Math.round(payment);
     }
 
-    public static void sqrt(int c) {
-        double t=c;
-        double elipson=1e-15;
-        int count = 0;
-        double root;
-        while (true)
-        {
-            count++;
-            root =c + (c / t);
-            System.out.println(root);
-            if (Math.abs((t-c/t) - t) > (elipson*t))
-                break;
-            t = root;
+    public static double sqrt(Number c) {
+        double elipson = 1e-15;
+        double temp = c.doubleValue() / 2;
+        for (double sqrRoot; ; temp = sqrRoot) {
+            sqrRoot = temp - (temp * temp - c.doubleValue()) / (2 * temp);
+            if (Math.abs(temp - sqrRoot) < elipson)
+                return sqrRoot;
         }
-        System.out.println(root);
+    }
+
+    public static String toBinary(int num) {
+        StringBuilder binaryValue = new StringBuilder();
+        while (num > 0) {
+            short binary = (short) (num % 2);
+            binaryValue.append(binary);
+            num = num / 2;
+        }
+        return binaryValue.toString();
+    }
+
+    public static String computeBinaryDecomposition(String binaryValue) {
+        int binaryRepresent = 1;
+        StringBuilder intRepresentation = new StringBuilder();
+        for (int i = 0; i < binaryValue.length(); i++) {
+            int val = Integer.parseInt(String.valueOf(binaryValue.charAt(i)));
+            if (val == 1) {
+                binaryRepresent = multiplyByTwo(binaryRepresent);
+                if (i == 0)
+                    binaryRepresent = 1;
+                intRepresentation.append(binaryRepresent).append(",");
+            } else {
+                binaryRepresent = multiplyByTwo(binaryRepresent);
+                if (i == 0)
+                    binaryRepresent = 1;
+            }
+        }
+        return intRepresentation.toString();
+    }
+
+    public static int multiplyByTwo(int number) {
+        return number * 2;
     }
 }
